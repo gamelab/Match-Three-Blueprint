@@ -1,8 +1,16 @@
+Match Three Blueprint
+======================================
+
 Name: Match 3 Blueprint
+
 Version: 1.0
+
 Type: Game
+
 Author: Kiwi.js Team
+
 Website: www.kiwijs.org
+
 KiwiJS last version tested: 0.6
 
 ----------------------------------------------------------------------------------------
