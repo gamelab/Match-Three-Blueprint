@@ -13,15 +13,15 @@ Website: www.kiwijs.org
 
 KiwiJS last version tested: 0.6
 
-----------------------------------------------------------------------------------------
-Versions
+
+
+##Versions
 ----------------------------------------------------------------------------------------
 
 1.0 - Initial Game. 
-	
+    
 
-----------------------------------------------------------------------------------------
-Description:
+##Description:
 ----------------------------------------------------------------------------------------
 The Match 3 Blueprint is a basic example of a Match 3 game you can use to rapidly build your project and has common Match 3 functionality.
 
