@@ -14,6 +14,7 @@ Contains basic Match-Three functionality below:
 - Animated Tiles
 - Editable Assets
 - Resizable Stage and Tiles
+- Recursive Match-Clearing system
 
 ##Contribute
 
