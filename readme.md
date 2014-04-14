@@ -9,7 +9,11 @@ This Blueprint allows users to rapidly develop an HTML5 Match-Three game. Enjoy!
 
 
 ##Features
-List coming soon
+Contains basic Match-Three functionality below:
+- Easy to Edit Match-Three Game Template
+- Animated Tiles
+- Editable Assets
+- Resizable Stage and Tiles
 
 ##Contribute
 
