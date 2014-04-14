@@ -1,28 +1,18 @@
-Match Three Blueprint
+Match Three Blueprint v1.0
 ======================================
 
-Name: Match 3 Blueprint
+![alt tag](https://upload.wikimedia.org/wikipedia/en/0/05/Bejeweled_deluxe_sc1.jpg)
 
-Version: 1.0
+The Kiwi.JS Match 3 Game Blueprint is a basic example of a Match 3 game you can use to rapidly build your project and has common Match 3 functionality.
 
-Type: Game
+##Features
+List coming soon
 
-Author: Kiwi.js Team
+##Contribute
 
-Website: www.kiwijs.org
+If you discover a bug or find yourself just wanting to jump on in please file an issue and get stuck in. We're a friedly bunch and hope people find themselves wanting to get involved. 
 
-KiwiJS last version tested: 0.6
+https://github.com/gamelab/Match-Three-Blueprint/issues/new
 
-
-
-##Versions
-----------------------------------------------------------------------------------------
-
-1.0 - Initial Game. 
-    
-
-##Description:
-----------------------------------------------------------------------------------------
-The Match 3 Blueprint is a basic example of a Match 3 game you can use to rapidly build your project and has common Match 3 functionality.
-
-If you have any problems then feel free to contact us via the http://www.kiwijs.org/help
+##Licence
+MIT
