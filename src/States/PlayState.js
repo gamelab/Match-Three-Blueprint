@@ -33,6 +33,9 @@ PlayState.create = function () {
     //Total matches per turn
     this.totalMatchesCleared = 0;
 
+    this.startX = 0;
+    this.startY = 0;
+
     //////////////////
     //Enable swipe?
     this.enableSwipe = true;
@@ -48,7 +51,7 @@ PlayState.create = function () {
     for (var y = 0; y < this.height; y++) {
         for (var x = 0; x < this.width; x++) {
             var rand = Math.floor(Math.random() * PlayState.gemCount);
-            var tempCreate = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, x * PlayState.tileSize, y * PlayState.tileSize);
+            var tempCreate = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, x * PlayState.tileSize + this.startX, y * PlayState.tileSize + this.startY);
             tempCreate.animation.switchTo(rand);
             tempCreate.my_x = x;
             tempCreate.my_y = y;
@@ -108,13 +111,13 @@ PlayState.clickTile = function (mouseX, mouseY) {
         this.clearedOriginalBoard = !this.clearedOriginalBoard;
     }
     for(var i = 0; i < this.width; i++){
-        if(mouseX > this.tileSize * i && mouseX < this.tileSize * (i+1)){
+        if (mouseX - this.startX > this.tileSize * i && mouseX - this.startX < this.tileSize * (i + 1)) {
             tileX = i;
         }
     }
 
     for(var j = 0; j < this.height; j++){
-        if(mouseY > this.tileSize * j && mouseY < this.tileSize * (j+1)){
+        if (mouseY - this.startY > this.tileSize * j && mouseY - this.startY < this.tileSize * (j + 1)) {
             tileY = j;
         }
     }
@@ -245,7 +248,7 @@ PlayState.updateBoard = function () {
                     }
                     newCount++;
                     var rand = Math.floor(Math.random() * PlayState.gemCount);
-                    var tempTile = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, tile.my_x * PlayState.tileSize,-(newCount)*PlayState.tileSize);
+                    var tempTile = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, (tile.my_x * PlayState.tileSize) + this.startX, -((newCount) * PlayState.tileSize) + this.startY);
                     tempTile.animation.switchTo(rand);
                     tempTile.my_x = tile.my_x;
                     tempTile.my_y = tile.my_y;
@@ -265,7 +268,7 @@ PlayState.updateBoard = function () {
                     lowestVisible.animating = true;
                     lowestVisible.my_y = tile.my_y;
                     lowestVisible.name = tile.name;
-                    lowestVisible.x = tile.my_x*PlayState.tileSize;
+                    lowestVisible.x = tile.my_x * PlayState.tileSize + this.startX;
                     this.pieces[tile.my_y][tile.my_x] = lowestVisible;
                     tile.my_y = lowestVisibleY;
                     tile.name = lowestVisibleName;
@@ -413,8 +416,8 @@ PlayState.moveTiles = function(){
             for(var j = 0; j < this.height; j++){
                 if(this.pieces[j][i].animating == true){
                     this.pieces[j][i].y += this.step;
-                    if(this.pieces[j][i].y >= this.pieces[j][i].my_y * this.tileSize){
-                        this.pieces[j][i].y = this.pieces[j][i].my_y * this.tileSize;
+                    if (this.pieces[j][i].y >= (this.pieces[j][i].my_y * this.tileSize) + this.startY) {
+                        this.pieces[j][i].y = (this.pieces[j][i].my_y * this.tileSize) + this.startY;
                         this.pieces[j][i].animating = false;
                     }
                 }
@@ -490,7 +493,7 @@ PlayState.updateOriginalBoard = function () {
                     newCount++;
                     //no above tile, so randomize a new one
                     var rand = Math.floor(Math.random() * PlayState.gemCount);
-                    var tempTile = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, tile.my_x * PlayState.tileSize, tile.my_y * PlayState.tileSize);
+                    var tempTile = new Kiwi.GameObjects.Sprite(PlayState, PlayState.textures.gems, (tile.my_x * PlayState.tileSize) + this.startX, (tile.my_y * PlayState.tileSize) + this.startY);
                     tempTile.animation.switchTo(rand);
                     tempTile.my_x = tile.my_x;
                     tempTile.my_y = tile.my_y;
@@ -509,8 +512,8 @@ PlayState.updateOriginalBoard = function () {
                     lowestVisible.visible = true;
                     lowestVisible.my_y = tile.my_y;
                     lowestVisible.name = tile.name;
-                    lowestVisible.x = tile.my_x*PlayState.tileSize;
-                    lowestVisible.y = tile.my_y*PlayState.tileSize;
+                    lowestVisible.x = (tile.my_x * PlayState.tileSize) + this.startX;
+                    lowestVisible.y = (tile.my_y * PlayState.tileSize) + this.startY;
                     this.pieces[tile.my_y][tile.my_x] = lowestVisible;
 
                     tile.my_y = lowestVisibleY;
