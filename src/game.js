@@ -8,8 +8,12 @@
 */
 
 //Initialise the Kiwi Game. 
+var gameOptions = {
+	width: 420,
+	height: 600
+}
 
-var game = new Kiwi.Game('content', 'Match3', null, { renderer: Kiwi.RENDERER_CANVAS });
+var game = new Kiwi.Game('content', 'Match3', null, gameOptions);
 
 //Add all the States we are going to use.
 game.states.addState(LoadingState);

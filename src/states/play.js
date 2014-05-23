@@ -18,18 +18,47 @@ var PlayState = new Kiwi.State('PlayState');
 * @public
 */
 PlayState.create = function () {
+
     /**
-    * Create your randomized board.
+    * The gem count controls the amount of varying gems that there should be on the board at a single time. 
+    * For example if you set this to 8, then there will be 8 different types of gems on the board.
     */
-    this.gemCount = 5;
-    this.tileSize = 40;
-    this.height = 10;
-    this.width = 7;
+    this.gemCount = 8; 
+
+
+    /*
+    * If you want to be more tricky you can also dynamically set the gemCount to be the same as the number of cells/frames in a spritesheet.
+    * To try this out use the line which is commented out below.
+    */
+    // this.gemCount = this.textures.gems.cells.length;
+
+
+    /**
+    * The width/height of a single tile. 
+    **/
+    this.tileSize = 60;
+    
+
+    /*
+    * The width/height of the board in tiles.
+    */
+    this.height = 10; 
+    this.width = 7;   
+    
+    /**
+    * Again if you want to be tricky you could always make the width/height of the board in tiles match the Stages width/height.
+    */
+
     this.matchesCleared = 0;
+
+    /**
+    * In Game variables.
+    **/
     this.animating = false;
     this.step = 5;
     this.clearedOriginalBoard = false;
     this.score = 0;
+
     //Total matches per turn
     this.totalMatchesCleared = 0;
 
@@ -37,16 +66,17 @@ PlayState.create = function () {
     this.startY = 0;
 
     //////////////////
-    //Enable swipe?
+    //Enable Swipe.
     this.enableSwipe = true;
+
     this.game.input.onUp.add(PlayState.clickTile, PlayState);
-    if(this.enableSwipe)
-        this.game.input.onDown.add(PlayState.clickTile, PlayState);
+    if(this.enableSwipe) this.game.input.onDown.add(PlayState.clickTile, PlayState);
 
     this.pieces = [];
     for (var i = 0; i < this.height; i++) {
         this.pieces.push(new Array(this.width));
     };
+
 
     for (var y = 0; y < this.height; y++) {
         for (var x = 0; x < this.width; x++) {
@@ -66,6 +96,7 @@ PlayState.create = function () {
     };
     this.curr = '';
 
+
     //Remove any matches created by randomization
     //this.clearMatches();
     this.clearOriginalMatches();
@@ -80,10 +111,6 @@ PlayState.create = function () {
 */
 PlayState.update = function(){
     Kiwi.State.prototype.update.call(this);
-
-    /**//////////////////**/
-    console.log(this.score);
-    /**//////////////////**/
 
 
     if(this.clearedOriginalBoard){
@@ -353,7 +380,7 @@ PlayState.getMatchesHorizontal = function (piece) {
     }
     for (var i = piece.my_x + 1; i < this.width; i++) {
         var t = this.pieces[piece.my_y][i];
-        //console.log(t);
+
         if (t.animation.frameIndex == piece.animation.frameIndex) {
             matches.push(t);
         } else {
@@ -448,8 +475,7 @@ PlayState.updateScore= function(matches){
    } else if (matches.length > 10){
        this.score += matches.length * 8;
    }
-   console.log(this.score);
-
+ 
 }
 
 
