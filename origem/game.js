@@ -9,8 +9,8 @@
 
 //Initialise the Kiwi Game. 
 var gameOptions = {
-	width: 100%,
-	height: 100%
+	width: 520,
+	height: 600
 }
 
 var game = new Kiwi.Game('content', 'Match3', null, gameOptions);
