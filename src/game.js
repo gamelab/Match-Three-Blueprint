@@ -9,7 +9,7 @@
 
 //Initialise the Kiwi Game. 
 var gameOptions = {
-	width: 1250,
+	width: 1235,
 	height: 1500
 	
 }
