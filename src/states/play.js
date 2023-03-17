@@ -39,7 +39,7 @@ PlayState.create = function () {
     /**
      * The width/height of a single tile.
      **/
-    var tileSize = {x: 250, y: 250};
+    var tileSize = {x: 150, y: 150};
 
     /*
      * The width/height of the board in tiles.
@@ -47,12 +47,12 @@ PlayState.create = function () {
      * Again if you want to be tricky you could always make the
      * width/height of the board in tiles match the Stages width/height.
      */
-    var boardSize = { x: 21, y: 30 };
+    var boardSize = { x: 14, y: 20 };
 
     /*
      * The offset of the board in screen coordinates.
      */
-    var offset = {x: 5, y: 5};
+    var offset = {x: 0, y: 0};
 
     var spritesheet = this.textures.gems;
     this.coordMapper = new CoordMapper(tileSize, offset);
