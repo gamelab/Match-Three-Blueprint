@@ -55,7 +55,7 @@ MatchThreeTile.createFactory = function(state, spritesheet, gemCount, coordMappe
  * Inverse animation speed in milliseconds per pixel.
  * @static
  */
-MatchThreeTile.INVERSE_SPEED = 10;
+MatchThreeTile.INVERSE_SPEED = 1;
 
 /**
  * Changes the tile appearance and value. Useful to generate a new tile out of
