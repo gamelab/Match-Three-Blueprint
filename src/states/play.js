@@ -39,7 +39,7 @@ PlayState.create = function () {
     /**
      * The width/height of a single tile.
      **/
-    var tileSize = {x: 150, y: 150};
+    var tileSize = {x: 120, y: 120};
 
     /*
      * The width/height of the board in tiles.
