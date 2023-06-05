@@ -39,7 +39,7 @@ PlayState.create = function () {
     /**
      * The width/height of a single tile.
      **/
-    var tileSize = {x: 60, y: 60};
+    var tileSize = {x: 120, y: 120};
 
     /*
      * The width/height of the board in tiles.
@@ -47,7 +47,7 @@ PlayState.create = function () {
      * Again if you want to be tricky you could always make the
      * width/height of the board in tiles match the Stages width/height.
      */
-    var boardSize = { x: 7, y: 10 };
+    var boardSize = { x: 14, y: 20 };
 
     /*
      * The offset of the board in screen coordinates.
